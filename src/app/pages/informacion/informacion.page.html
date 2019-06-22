@@ -1,0 +1,49 @@
+<app-header titulo="Informacion"></app-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="empresas">
+    <ion-card *ngFor="let empresa of empresas">
+      <ion-card-header>{{empresa.nombre}}</ion-card-header>
+      <ion-card-content>        
+        <img src="http://127.0.0.1:1337{{empresa.fotos.url}}">
+        <p>{{empresa.nit}}</p>
+        <p>{{empresa.direccion}}</p>
+        <p>{{empresa.telefono}}</p>
+        <p>{{empresa.ubicacion}}</p>
+        <ion-toggle ></ion-toggle>
+        <p>{{empresa.estado}}</p>
+        <a href="{{empresa.latitud}}{{empresa.longitud}}">Abrir en Google Maps</a>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <h2>Agregar Empresa</h2>
+  <form (ngSubmit)="saveEmpresas()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="empresa.nombre" name="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nit</ion-label>
+      <ion-input type="number" [(ngModel)]="empresa.nit" name="nit"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Direccion</ion-label>
+      <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+      <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Correo</ion-label>
+      <ion-input type="email" [(ngModel)]="empresa.correo" name="correo"></ion-input>
+    </ion-item>
+
+    <ion-button color="primary" type="submit" >Agregar empresa</ion-button>    
+    
+  </form>
+
+</ion-content>

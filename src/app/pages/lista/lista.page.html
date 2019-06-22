@@ -1,0 +1,17 @@
+<app-header titulo="Lista"></app-header>
+
+<ion-content>
+  <ion-list *ngIf="empresas">
+    <ion-item routerLink="/informacion" *ngFor="let empresa of empresas">
+      <ion-card-header>{{empresa.nombre}} {{empresa.categoria}}</ion-card-header>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- <div *ngIf="empresas">
+    <ion-card *ngFor="let empresa of empresas">
+      <ion-card-header>{{empresa.nombre}}</ion-card-header>
+    </ion-card>
+  </div> -->
+
+</ion-content>
