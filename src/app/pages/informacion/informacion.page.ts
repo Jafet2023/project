@@ -10,7 +10,8 @@ import { ProductEmpresa } from 'src/app/empresa';
 export class InformacionPage implements OnInit {
 
   empresas: any;
-  empresa = {nombre: '', nit: '', direccion: '', telefono: '', correo: ''};
+  empresa = {"nombre": '', "nit": '', "direccion": '', "telefono": '', "correo": ''};
+  ngForm: any;
 
   constructor(private serviceProvider: ProvidersService) { }
 
@@ -29,4 +30,14 @@ export class InformacionPage implements OnInit {
     });
   }
 
+  doSignup() {
+    this.serviceProvider.register(this.ngForm).then((result)=> 
+    //this.serviceProvider.register(this.empresa).then((result) => 
+    {
+     console.log(result)
+     }, (err) => {
+      console.log(err)
+
+    });
+  }
 }

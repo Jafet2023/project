@@ -38,4 +38,17 @@ export class ProvidersService {
     return this.http.post(this.apiUrl + '/empresas', JSON.stringify(empresa));
   } */
 
+  register(data) {
+    return new Promise((resolve, reject) => {
+
+       this.http.post(this.apiUrl + '/empresas', JSON.stringify(data))
+       .subscribe(res => {
+       resolve(res);
+       }, (err) => {
+         reject(err);
+
+        });
+       });
+      }
+
 }
