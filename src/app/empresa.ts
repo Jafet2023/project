@@ -1,4 +1,8 @@
 export class ProductEmpresa{
+  static number(number: any) {
+    throw new Error("Method not implemented.");
+  }
+    id: string;
     nombre: string;
     direccion: string;
     correo: string;
@@ -9,16 +13,3 @@ export class ProductEmpresa{
 //  export interface Empresas{
 //     empresas: Array<Empresa>
 //  }
-class ProductCache {
-   public products: Array<ProductEmpresa>;
-   public timestamp: number;
-
-   public isValid(): boolean {
-       if(!this.products) {
-           return false;
-       }
-
-       let isExpired = Date.now() - this.timestamp > 1800000; // 30 min
-       return !isExpired;
-   }
-}

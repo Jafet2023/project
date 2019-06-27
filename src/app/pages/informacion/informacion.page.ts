@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProvidersService } from '../../providers.service';
 import { ProductEmpresa } from 'src/app/empresa';
+
 
 @Component({
   selector: 'app-informacion',
@@ -10,34 +12,26 @@ import { ProductEmpresa } from 'src/app/empresa';
 export class InformacionPage implements OnInit {
 
   empresas: any;
-  empresa = {"nombre": '', "nit": '', "direccion": '', "telefono": '', "correo": ''};
-  ngForm: any;
+  // empresa = {"nombre": '', "nit": '', "direccion": '', "telefono": '', "correo": ''};
+  information=null;
 
-  constructor(private serviceProvider: ProvidersService) { }
+  constructor(private serviceProvider: ProvidersService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.serviceProvider.getEmpresas().then(data => {
-      this.empresas = data;
-      console.log(this.empresas);
+    let id =this.activatedRoute.snapshot.paramMap.get('id');
+    this.serviceProvider.getDetails(id).subscribe(result => {
+      console.log('informacion:', result);
+      this.information = result;
     });
   }
 
-  saveEmpresas() {
-    this.serviceProvider.addEmpresas(this.empresa).then((result) => {
-      console.log(result);
-    }, (err) => {
-      console.log(err);
-    });
+  openWebsite(){
+    window.open(this.information.Website,`_blank`);
   }
-
-  doSignup() {
-    this.serviceProvider.register(this.ngForm).then((result)=> 
-    //this.serviceProvider.register(this.empresa).then((result) => 
-    {
-     console.log(result)
-     }, (err) => {
-      console.log(err)
-
-    });
-  }
+  
 }
+
+// this.serviceProvider.getProductById(ProductEmpresa.number).then(data => {
+//   this.empresas = data;
+//   console.log(this.empresas);
+// })

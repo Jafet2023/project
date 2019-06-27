@@ -15,10 +15,10 @@ export class ListaPage implements OnInit {
   constructor(private serviceProvider: ProvidersService) { }
 
   ngOnInit() {
-    this.serviceProvider.getEmpresas().then(data => {
+    this.serviceProvider.getMecanica().then(data => {
       this.empresas = data;
       console.log(this.empresas);
-    });
+    })
   }
 
 }

@@ -3,7 +3,7 @@
 
 <ion-content padding>
 
-  <!-- <div *ngIf="empresas.categorias=='Mecanica'">
+  <div *ngIf="empresas">
     <ion-card *ngFor="let empresa of empresas">
       <ion-card-header>{{empresa.nombre}}</ion-card-header>
       <ion-card-content>        
@@ -14,13 +14,12 @@
         <p>{{empresa.ubicacion}}</p>
         <ion-toggle ></ion-toggle>
         <p>{{empresa.estado}}</p>
-        <p>{{empresa.categorias.nombre}}</p>
         <a href="{{empresa.latitud}}{{empresa.longitud}}">Abrir en Google Maps</a>
       </ion-card-content>
     </ion-card>
-  </div> -->
+  </div>
 
-  <h2>Agregar Empresa</h2>
+  <!-- <h2>Agregar Empresa</h2>
   <form ngForm #myForm="ngForm" (ngSubmit) =doSignup(myForm) >
     <ion-item>
       <ion-label>Nombre</ion-label>
@@ -45,6 +44,6 @@
 
     <ion-button color="primary" type="submit">Agregar empresa</ion-button>    
     
-  </form>
+  </form> -->
 
 </ion-content>
