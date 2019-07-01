@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpRequest } from '@angular/common/http';
-// import { map } from 'rxjs/operators';
-// import { ProductEmpresa } from './empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -35,33 +33,13 @@ export class ProvidersService {
   //   });
   // }
 
-  getDetails(id){
+  getDetails(id: string){
     return this.http.get(`${this.apiUrl}/empresas/${id}`);
   }
 
-  // getProductById(productId: number){
-  //   return new Promise(resolve => {
-  //     this.http.get(this.apiUrl + '/empresas/' + productId).subscribe(data => {
-  //       resolve(data);
-  //     }, err => {
-  //       console.log(err)
-  //     });
-  //   });
-  // }
-  
-  // getProductById(productId: number){
-  //   return new Promise(resolve => {
-  //     this.http.get(this.apiUrl + '/empresas/' + productId).subscribe(data => {
-  //       resolve(data);
-  //     }, err => {
-  //       console.log(err);
-  //     });
-  //   });
-  // }
-
   getMecanica(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/empresas?categoria=Mecanica').subscribe(data => {
+      this.http.get(this.apiUrl + '/servicios/5d179cbc60be3821a064d473').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -71,12 +49,33 @@ export class ProvidersService {
 
   getCerrajero(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/empresas?categoria=Cerrajero').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?categoria=Cerrajería').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
       });
     });
   }
+
+  getGrua(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/empresas?categoria=Grúa').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  getGomeria(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/empresas?categoria=Gomeria').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   
 }

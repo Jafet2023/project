@@ -11,23 +11,50 @@ import { ProductEmpresa } from 'src/app/empresa';
 })
 export class InformacionPage implements OnInit {
 
-  empresas: any;
+  //empresas: any;
   // empresa = {"nombre": '', "nit": '', "direccion": '', "telefono": '', "correo": ''};
-  information=null;
+  information: any;
 
-  constructor(private serviceProvider: ProvidersService, private activatedRoute: ActivatedRoute) { }
+  // empresas: ProductEmpresa;
+  isLoading = true;
+
+  constructor(private serviceProvider: ProvidersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let id =this.activatedRoute.snapshot.paramMap.get('id');
+    let id =this.route.snapshot.paramMap.get('id');
     this.serviceProvider.getDetails(id).subscribe(result => {
-      console.log('informacion:', result);
+      console.log('details:', result);
       this.information = result;
     });
+
+    // this.route.params.subscribe(
+    //   params => {
+    //     const id = params['id'];
+    //     this.getEmpresa(id);
+    //   }
+    // );   
   }
 
-  openWebsite(){
+  // getEmpresa(id) {
+  //   const empresaSubs = this.serviceProvider.getDetails(id).subscribe(
+  //     empresas => {
+  //       this.empresas = empresas;
+
+  //       console.log(this.empresas);
+
+  //       if (!this.empresas) {
+  //         alert('Server Error')
+  //       } else {
+  //         this.isLoading = false;
+  //       }
+  //     }, () => {},
+  //     () => { if (empresaSubs) { empresaSubs.unsubscribe() } }
+  //   );
+  // }
+
+  /* openWebsite(){
     window.open(this.information.Website,`_blank`);
-  }
+  } */
   
 }
 

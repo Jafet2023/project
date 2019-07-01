@@ -1,9 +1,28 @@
 <app-header titulo="Informacion"></app-header>
 
+<ion-content text-center>
+  <ion-card *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.nombre}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="http://127.0.0.1:1337{{information.fotos.url}}">
+      <p>Nit: {{information.nit}}</p>
+      <p>Direccion:{{information.direccion}}</p>
+      <p>Telefono: <a href="{{information.telefono}}">{{information.telefono}}</a></p>
+      <p>Ubicacion: </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
 
-<ion-content padding>
+<!-- <app-header titulo="Informacion"></app-header>
 
-  <div *ngIf="empresas">
+
+<ion-content padding> -->
+
+  <!-- <div *ngIf="empresas">
     <ion-card *ngFor="let empresa of empresas">
       <ion-card-header>{{empresa.nombre}}</ion-card-header>
       <ion-card-content>        
@@ -17,7 +36,7 @@
         <a href="{{empresa.latitud}}{{empresa.longitud}}">Abrir en Google Maps</a>
       </ion-card-content>
     </ion-card>
-  </div>
+  </div> -->
 
   <!-- <h2>Agregar Empresa</h2>
   <form ngForm #myForm="ngForm" (ngSubmit) =doSignup(myForm) >
@@ -45,5 +64,5 @@
     <ion-button color="primary" type="submit">Agregar empresa</ion-button>    
     
   </form> -->
-
-</ion-content>
+<!-- 
+</ion-content> -->

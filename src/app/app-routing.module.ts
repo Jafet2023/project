@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'lista', loadChildren: './pages/lista/lista.module#ListaPageModule' },
-  { path: 'informacion/:_id', loadChildren: './pages/informacion/informacion.module#InformacionPageModule' },
+  { path: 'lista/:id', loadChildren: './pages/informacion/informacion.module#InformacionPageModule' },
+  { path: 'listagomeria', loadChildren: './pages/listagomeria/listagomeria.module#ListagomeriaPageModule' },
+  { path: 'listagrua', loadChildren: './pages/listagrua/listagrua.module#ListagruaPageModule' },
 ];
 
 @NgModule({

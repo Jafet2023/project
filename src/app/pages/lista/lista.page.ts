@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersService } from '../../providers.service';
-import { Observable } from 'rxjs';
 import { ProductEmpresa } from '../../empresa';
 
 @Component({
@@ -9,13 +8,14 @@ import { ProductEmpresa } from '../../empresa';
   styleUrls: ['./lista.page.scss'],
 })
 export class ListaPage implements OnInit {
-
   empresas: any;
+  servicios: any;
 
   constructor(private serviceProvider: ProvidersService) { }
 
   ngOnInit() {
     this.serviceProvider.getMecanica().then(data => {
+      this.servicios = data;
       this.empresas = data;
       console.log(this.empresas);
     })

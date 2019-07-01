@@ -1,10 +1,22 @@
-<app-header titulo="Lista"></app-header>
+<app-header titulo="Lista de Mecanica"></app-header>
+
+<ion-content padding>
+  <ion-list >
+    <ion-item button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
+      <h3>{{ empresa.nombre }}</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- <app-header titulo="Lista"></app-header>
 
 <ion-content>
   <ion-list *ngIf="empresas">
-    <ion-item  button [routerLink]="['/informacion', empresas._id]" *ngFor="let empresa of empresas">
-      <ion-card-header>{{empresa.nombre}} {{empresa.id}} </ion-card-header> 
-    </ion-item>
+    <div *ngFor="let empresa of empresas">
+      <ion-item  button [routerLink]="['/lista', empresas.id]" >
+        <ion-card-header>{{empresa.nombre}} {{empresa.id}} </ion-card-header> 
+      </ion-item>
+    </div>    
   </ion-list>
 
-</ion-content>
+</ion-content> -->
