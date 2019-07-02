@@ -8,14 +8,13 @@ import { ProductEmpresa } from '../../empresa';
   styleUrls: ['./lista.page.scss'],
 })
 export class ListaPage implements OnInit {
+  
   empresas: any;
-  servicios: any;
 
   constructor(private serviceProvider: ProvidersService) { }
 
   ngOnInit() {
     this.serviceProvider.getMecanica().then(data => {
-      this.servicios = data;
       this.empresas = data;
       console.log(this.empresas);
     })
