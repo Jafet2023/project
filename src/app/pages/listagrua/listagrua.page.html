@@ -2,7 +2,7 @@
 
 <ion-content padding>
   <ion-list >
-    <ion-item button *ngFor="let empresa of empresas" [routerLink]="['/', 'lista', empresa.id]">
+    <ion-item button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
       <h3>{{ empresa.nombre }}</h3>
     </ion-item>
   </ion-list>
