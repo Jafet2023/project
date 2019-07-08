@@ -53,12 +53,11 @@ avatarSlide = {
   ngOnInit() {
   }
 
-  login(fLogin: NgForm) {
-    console.log(fLogin.valid);
-  }
+  // login(fLogin: NgForm) {
+  //   console.log(fLogin.valid);
+  // }
 
   Registro(fRegistro: NgForm) {
-    console.log(fRegistro.valid);
     this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.telefono, fRegistro.value.email)
       .subscribe(data => {
         console.log(data);
@@ -71,25 +70,5 @@ avatarSlide = {
     this.avatars.forEach(av => av.seleccionado = false);
     avatar.seleccionado = true;
   }
-
-  // register(form: NgForm) {
-  //   this.serviceProvider.register(form.value.fName, form.value.lName, form.value.email, form.value.password).subscribe(
-  //     data => {
-  //       this.serviceProvider.login(form.value.email, form.value.password).subscribe(
-  //         data => {
-  //         },
-  //         error => {
-  //           console.log(error);
-  //         }
-  //       );
-  //       // this.serviceProvider.presentToast(data['message']);
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     },
-  //     () => {
-        
-  //     }
-  //   );
-  // }
+  
 }
