@@ -39,6 +39,7 @@ export class ProvidersService {
   //   });
   // }
 
+  //vista informacion traido por ID
   getDetails(id: string){
     return this.http.get(`${this.apiUrl}/empresas/${id}`);
   }
