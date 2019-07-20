@@ -10,8 +10,10 @@ export class ProvidersService {
     console.log('Hola Provider');
   }
 
-  apiUrl = 'http://127.0.0.1:1337';
+  apiUrl = 'https://strapi-udi.herokuapp.com';
 
+  //https://strapi-udi.herokuapp.com
+  //http://127.0.0.1:1337
   getEmpresas() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl + '/empresas').subscribe(data => {

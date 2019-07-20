@@ -6,7 +6,7 @@
 
 <ion-content>
 
-  <ion-slides pager="true">
+  <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let slide of slides">
       <ion-card>
         <img [src]="slide.img">
@@ -40,5 +40,8 @@
 
   <ion-button routerLink="/login">
     Login
+  </ion-button>
+  <ion-button routerLink="/reclamo">
+    Reclamo
   </ion-button>
 </ion-content>
