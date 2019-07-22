@@ -17,8 +17,8 @@
 
   <ion-item>
       <ion-label>Seleccione la Empresa</ion-label>
-      <ionic-selectable item-content [(ngModel)]="empresas.nombre" itemValueField="empresas.id" itemTextField="empresas.nombre" 
-      [items]="ports" [canSearch]="true" (onChange)="portChange($event)">
+      <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
+      [items]="Empresas" [canSearch]="true" (onChange)="portChange($event)">
         <ng-template selectSearchableLabelTemplate>
           Port QWERTY
         </ng-template>
