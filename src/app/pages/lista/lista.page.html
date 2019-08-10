@@ -2,9 +2,16 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
-      <h3>{{ empresa.nombre }}</h3>
-    </ion-item>
+    <ion-card button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
+        <ion-card-header>
+          <ion-card-title class="ion-text-nowrap">{{ empresa.nombre }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-text>{{ empresa.categoria }} - {{empresa.distancia}} m</ion-text><br/>
+            <ion-text>{{empresa.horarios}}</ion-text>
+        </ion-card-content>
+      </ion-card>
   </ion-list>
 </ion-content>
 
