@@ -10,6 +10,7 @@ export class ProvidersService {
     console.log('Hola Provider');
   }
 
+  // empresareclamo = 'empresa._id';
   apiUrl = 'https://strapi-udi.herokuapp.com';
 
   //https://strapi-udi.herokuapp.com
@@ -27,6 +28,12 @@ export class ProvidersService {
   register(nombre: String, telefono: String, correo: String) {
     return this.http.post(this.apiUrl + '/conductors',
       {nombre: nombre, telefono: telefono, correo: correo}
+    )
+  }
+
+  PostReclamo(descripcion: String,empresareclamo: String) {
+    return this.http.post(this.apiUrl + '/reclamos',
+      {descripcion: descripcion,empresa: empresareclamo }
     )
   }
 

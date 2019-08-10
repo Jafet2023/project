@@ -39,12 +39,4 @@ export class InicioPage implements OnInit {
     console.log();
   }
 
-  // cargarNoticias(categoria : string){
-  //   this.noticiasService.getTopHeadlinesCategoria(categoria).subscribe(resp=> {
-  //     console.log
-  //   })
-  // }
-
-
-
 }

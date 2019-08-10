@@ -1,39 +1,44 @@
 <app-header titulo="Reclamo"></app-header>
 
 <ion-content>
-
-  <ion-toolbar>
-      <ion-text>
-          <h6>Selecione la Empresa</h6>
-      </ion-text>
-  </ion-toolbar>
-
-  <!-- <ion-item>
-    <ion-label>Seleccionar la empresa</ion-label>
-    <ionic-selectable (ngModel)="empresas.nombre" itemValueField="id" itemTextField="name">
-      {{empresas.nombre}}
-    </ionic-selectable>
-  </ion-item> -->
-
-  <ion-item>
-      <ion-label>Seleccione la Empresa</ion-label>
-      <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
-      [items]="Empresas" [canSearch]="true" (onChange)="portChange($event)">
-        <ng-template selectSearchableLabelTemplate>
-          Port QWERTY
-        </ng-template>
-        <ng-template selectSearchableItemTemplate let-port="item" *ngFor="let empresa of empresas">
-            {{empresa.nombre}} ({{empresa.nombre}})
-        </ng-template>
-      </ionic-selectable>
-    </ion-item>
-
-    <ion-toolbar>
-      <ion-text>
-          <h6>Descripcion</h6>
-      </ion-text>
-  </ion-toolbar>
-
+  <form #form="ngForm" (ngSubmit)="PostReclamo(form)" method="post">
+      <ion-toolbar>
+          <ion-text>
+              <h6>Selecione la Empresa</h6>
+          </ion-text>
+      </ion-toolbar>
+    
+      <!-- <ion-item>
+        <ion-label>Seleccionar la empresa</ion-label>
+        <ionic-selectable (ngModel)="empresas.nombre" itemValueField="id" itemTextField="name">
+          {{empresas.nombre}}
+        </ionic-selectable>
+      </ion-item> -->
+    
+      <ion-item>
+          <ion-label>Seleccione la Empresa</ion-label>
+          <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
+          [items]="Empresas" [canSearch]="true" (onChange)="portChange($event)" ngModel name="empresa" id="empresa">
+            <ng-template selectSearchableLabelTemplate>
+              No hay Empresas
+            </ng-template>
+            <ng-template selectSearchableItemTemplate let-port="item" *ngFor="let empresa of empresas">
+                {{empresa.nombre}}
+            </ng-template>
+          </ionic-selectable>
+        </ion-item>
+    
+        <ion-toolbar>
+          <ion-text>
+              <h6>Descripcion</h6>
+          </ion-text>
+          <ion-item>
+            <ion-input ngModel name="descripcion" id="descripcion"></ion-input>
+          </ion-item>
+      </ion-toolbar>
+      <br>
+      <ion-button type="submit" expand="full" color="danger">Enviar Reclamo</ion-button>
+  </form>
 </ion-content>
 
 <!-- <ion-header no-border>

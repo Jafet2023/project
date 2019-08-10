@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ProvidersService } from 'src/app/providers.service';
 import { IonicSelectableComponent } from 'ionic-selectable';
 
@@ -13,13 +14,15 @@ export class ReclamoPage implements OnInit {
   Empresas: any[];
   // Empresa: empresasel;
   empresas : any;
-  item: { id: any; nombre: any; };
+  
+  Reclamos: any[];
+  reclamos: any;
+  item: { _id: any; nombre: any; };
   // item: empresasel;
 
   
   constructor(private serviceProvider: ProvidersService) {
-    this.Empresas = [
-    ];
+    this.Empresas = [];
   }
 
   ngOnInit() {
@@ -28,7 +31,7 @@ export class ReclamoPage implements OnInit {
       console.log(this.empresas);
       for(let i=0;i<this.empresas.length;i++){
           this.item = {
-              id: this.empresas[i].id,
+              _id: this.empresas[i]._id,
               nombre: this.empresas[i].nombre
           };
           this.Empresas.push(this.item);
@@ -41,6 +44,15 @@ export class ReclamoPage implements OnInit {
     value: any 
   }) {
     console.log('port:', event.value);
+  }
+
+  PostReclamo(fRegistro: NgForm) {
+    this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.empresa)
+      .subscribe(data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

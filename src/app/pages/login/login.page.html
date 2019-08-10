@@ -111,20 +111,20 @@
       <form #form="ngForm" (ngSubmit)="Registro(form)" method="post">
         <ion-item>
             <ion-label position="floating">Nombre</ion-label>
-            <ion-input type="text" ngModel name="nombre"></ion-input>
+            <ion-input type="text" ngModel name="nombre" required></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label position="floating">Telefono</ion-label>
-          <ion-input type="number" ngModel name="telefono"></ion-input>
+          <ion-input type="number" ngModel name="telefono" required></ion-input>
         </ion-item>
       
         <ion-item>
           <ion-label position="floating">Correo</ion-label>
-          <ion-input type="email" ngModel name="email"></ion-input>
+          <ion-input type="email" ngModel name="email" required></ion-input>
         </ion-item>
       
-        <ion-button type="submit" expand="full" color="danger">Register</ion-button>
+        <ion-button type="submit" expand="full" color="danger" routerLink="/inicio">Registrarse</ion-button>
       </form>
       <!-- <p text-center>Already have a account?</p> -->
       <!-- <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button> -->
