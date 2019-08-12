@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'lista/:id', loadChildren: './pages/informacion/informacion.module#InformacionPageModule' },
   { path: 'listagomeria', loadChildren: './pages/listagomeria/listagomeria.module#ListagomeriaPageModule' },
   { path: 'listagrua', loadChildren: './pages/listagrua/listagrua.module#ListagruaPageModule' },
-  { path: 'reclamo', loadChildren: './pages/reclamo/reclamo.module#ReclamoPageModule' },
+  { path: 'reclamo', loadChildren: './pages/reclamo/reclamo.module#ReclamoPageModule' },  { path: 'calificacion', loadChildren: './pages/calificacion/calificacion.module#CalificacionPageModule' },
+
 ];
 
 @NgModule({

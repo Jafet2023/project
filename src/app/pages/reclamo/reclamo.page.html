@@ -8,13 +8,6 @@
           </ion-text>
       </ion-toolbar>
     
-      <!-- <ion-item>
-        <ion-label>Seleccionar la empresa</ion-label>
-        <ionic-selectable (ngModel)="empresas.nombre" itemValueField="id" itemTextField="name">
-          {{empresas.nombre}}
-        </ionic-selectable>
-      </ion-item> -->
-    
       <ion-item>
           <ion-label>Seleccione la Empresa</ion-label>
           <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
@@ -30,7 +23,7 @@
     
         <ion-toolbar>
           <ion-text>
-              <h6>Descripcion</h6>
+              <h6>Descripcion del Problema</h6>
           </ion-text>
           <ion-item>
             <ion-input ngModel name="descripcion" id="descripcion"></ion-input>
@@ -40,42 +33,3 @@
       <ion-button type="submit" expand="full" color="danger">Enviar Reclamo</ion-button>
   </form>
 </ion-content>
-
-<!-- <ion-header no-border>
-  *ngFor="let empresa of empresas.empresas"
-        <ion-toolbar>
-          <ion-title>
-           {{titleText}} -->
-          <!-- </ion-title>
-          <ion-buttons start>
-             <button ion-button (click)="CloseModel()">
-              Cancel
-            </button> -->
-          <!-- </ion-buttons>
-        </ion-toolbar>
-        <ion-toolbar color="light">
-          <ion-row>
-            <ion-col col-12 no-padding>
-              <ion-searchbar ></ion-searchbar>
-            </ion-col>
-          </ion-row>
-        </ion-toolbar>
-      </ion-header> -->
-
-<!-- <ion-content>
-<ion-fab right >
-    <button ion-fab>
-    <ion-icon name="checkmark"></ion-icon>
-    </button>
-</ion-fab>
-<ion-row
-    align-items-center>
-    <ion-col col-2 text-center style="padding:5px;">
-    <ion-icon *ngIf="item.selected" name="ios-checkmark-circle" color="primary" style="font-size: 26px;"></ion-icon>
-    <ion-icon *ngIf="!item.selected" name="ios-radio-button-off" color="primary" style="font-size: 26px;color: rgb(199, 199, 199);"></ion-icon>
-    </ion-col>
-    <ion-col col-10>
-     {{ item.name}} -->
-    <!-- </ion-col> -->
-<!-- </ion-row> -->
-<!-- </ion-content> -->
