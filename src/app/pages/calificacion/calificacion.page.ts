@@ -34,6 +34,7 @@ export class CalificacionPage implements OnInit {
           this.Empresas.push(this.item);
       }
     });
+    
   }
 
   portChange(event: {
