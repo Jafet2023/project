@@ -12,11 +12,10 @@
           <ion-content>
           <ion-list>
 
-        <ion-menu-toggle autoHide="false"  *ngFor="let c of componentes | async">
-          <ion-item [routerLink]="c.redirectTo">
-            <ion-icon slot="start" [name]="c.icon"></ion-icon>
-            <ion-label>{{ c.name }}</ion-label>
-          </ion-item>
+        <ion-menu-toggle autoHide="false">
+          <ion-item href="inicio">Inicio</ion-item>
+          <ion-item href="reclamo">Denuncia</ion-item>
+          <ion-item href="calificacion">Calificacion</ion-item>
         </ion-menu-toggle>
 
 

@@ -8,6 +8,8 @@ import { ProvidersService } from '../../providers.service';
 })
 export class InicioPage implements OnInit {
 
+
+  
   slideOpts = {
     initialSlide: 1,
     speed: 400
