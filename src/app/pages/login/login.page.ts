@@ -85,7 +85,7 @@ avatarSlide = {
       ])),
       telefono: new FormControl('',Validators.compose([
         Validators.required,
-        Validators.minLength(2),
+        Validators.minLength(6),
         Validators.maxLength(8),
         Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')
       ])),
