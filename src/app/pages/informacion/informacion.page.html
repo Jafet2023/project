@@ -15,4 +15,16 @@
       <p>Ubicacion: </p>
     </ion-card-content>
   </ion-card>
+
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>
+        Calificaciones
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngFor="let infor of information.calificacions">
+      <p>Descripcion: {{infor.descripcion}}</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

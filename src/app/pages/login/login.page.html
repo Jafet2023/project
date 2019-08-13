@@ -1,105 +1,4 @@
-<!-- <ion-content>
-    <ion-slides class="mainSlide">       -->
-      <!-- <ion-slide>
-        <form (ngSubmit)="login()" #fLogin="ngForm">
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col>
-                <img src="/assets/avatars/av-1.png">
-              </ion-col>
-            </ion-row>
-          
-            <ion-row>
-              <ion-col>
-                  <ion-list>
-                    <ion-item>
-                      <ion-label>Email</ion-label>
-                      <ion-input name="email" type="email" required></ion-input>
-                    </ion-item>
-  
-                    <ion-item>
-                      <ion-label>Password</ion-label>
-                      <ion-input name="password" type="password" required></ion-input>
-                    </ion-item>
-                  </ion-list>
-              </ion-col>
-            </ion-row>
-  
-            <ion-row>
-              <ion-col>
-                <ion-button type="submit"
-                            color="tertiary"
-                            shape="round">
-                  Login
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </ion-slide> -->
-      <!-- <ion-slide>        
-        <ion-grid fixed>
-            <ion-row>
-              <ion-col>
-                  <h3>Seleccione Avatar</h3>
-              </ion-col>
-              </ion-row>
-  
-              <ion-row>
-              <ion-col>
-                  <ion-slides [options]="avatarSlide">
-                  <ion-slide *ngFor="let avatar of avatars">
-                      <ion-img class="pick-avatar" 
-                              src="/assets/avatars/{{avatar.img}}"
-                              [ngClass]="{'pick-avatar-seleccionado': avatar.seleccionado}"
-                              (click)="seleccionarAvatar(avatar)"></ion-img>
-                  </ion-slide>
-                  </ion-slides>
-              </ion-col>
-              </ion-row>
-          
-              <form (ngSubmit)="registro(fRegistro)" #fRegistro="ngForm">
-                  <ion-row>
-                      <ion-col>
-                          
-                          <ion-list>
-                              
-                              <ion-item>
-                              <ion-label>Email</ion-label>
-                              <ion-input name="email" type="email" required></ion-input>
-                              </ion-item>
-  
-                              <ion-item>
-                              <ion-label>Nombre</ion-label>
-                              <ion-input name="nombre" type="text" required></ion-input>
-                              </ion-item>
-
-                              <ion-item>
-                                <ion-label>Apellidos</ion-label>
-                                <ion-input name="apellidos" type="text" required></ion-input>
-                                </ion-item>
-  
-                              <ion-item>
-                              <ion-label>Password</ion-label>
-                              <ion-input name="password" type="password" required></ion-input>
-                              </ion-item>
-  
-                          </ion-list>
-                      </ion-col>
-                  </ion-row>
-                  
-                  <ion-row>
-                  <ion-col>
-                      <ion-button type="submit" color="tertiary" shape="round">
-                          Crear usuario
-                      </ion-button>
-                  </ion-col>
-              </ion-row>
-              </form>
-          </ion-grid>
-      </ion-slide>
-    </ion-slides>
-  </ion-content> -->
+<app-header titulo="Login" color="primary"></app-header>
 
   <ion-header>
       <ion-toolbar>
@@ -108,29 +7,59 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
-      <form #form="ngForm" (ngSubmit)="Registro(form)" method="post">
+      <form [formGroup]="loginForm" #form="ngForm" (ngSubmit)="Registro(form)" method="post">
         <ion-item>
             <ion-label position="floating">Nombre</ion-label>
-            <ion-input type="text" ngModel name="nombre" required></ion-input>
+            <ion-input formControlName="nombre" type="text" ngModel name="nombre" required></ion-input>
         </ion-item>
+
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.nombre">
+            <div class="error-message" *ngIf="loginForm.get('nombre').hasError(error.type) && (loginForm.get('nombre').dirty || loginForm.get('nombre').touched)">
+              {{error.message}}
+            </div>
+          </ng-container>
+        </div>
 
         <ion-item>
           <ion-label position="floating">Apellidos</ion-label>
-          <ion-input type="text" ngModel name="apellidos" required></ion-input>
+          <ion-input formControlName="apellidos" type="text" ngModel name="apellidos" required></ion-input>
       </ion-item>
+
+      <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.apellidos">
+            <div class="error-message" *ngIf="loginForm.get('apellidos').hasError(error.type) && (loginForm.get('apellidos').dirty || loginForm.get('apellidos').touched)">
+              {{error.message}}
+            </div>
+          </ng-container>
+        </div>
       
         <ion-item>
           <ion-label position="floating">Telefono</ion-label>
-          <ion-input type="number" ngModel name="telefono" required></ion-input>
+          <ion-input formControlName="telefono" type="number" ngModel name="telefono" required></ion-input>
         </ion-item>
+
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.telefono">
+              <div class="error-message" *ngIf="loginForm.get('telefono').hasError(error.type) && (loginForm.get('telefono').dirty || loginForm.get('telefono').touched)">
+                {{error.message}}
+              </div>
+            </ng-container>
+          </div>
       
         <ion-item>
           <ion-label position="floating">Correo</ion-label>
-          <ion-input type="email" ngModel name="email" required></ion-input>
+          <ion-input formControlName="email" type="email" ngModel name="email" required></ion-input>
         </ion-item>
+
+        <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                {{error.message}}
+              </div>
+            </ng-container>
+          </div>
       
-        <ion-button type="submit" expand="full" color="danger" routerLink="/inicio">Registrarse</ion-button>
+        <ion-button [disabled]="!loginForm.valid" expand="block" type="submit" expand="full" color="danger" routerLink="/inicio">Registrarse</ion-button>
       </form>
-      <!-- <p text-center>Already have a account?</p> -->
-      <!-- <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button> -->
     </ion-content>
