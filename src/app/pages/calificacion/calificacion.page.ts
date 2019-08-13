@@ -43,8 +43,8 @@ export class CalificacionPage implements OnInit {
     console.log('port:', event.value);
   }
 
-  PostReclamo(fRegistro: NgForm) {
-    this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.empresa)
+  PostCalificacion(fRegistro: NgForm) {
+    this.serviceProvider.PostCalificacion(fRegistro.value.descripcion,fRegistro.value.empresa)
       .subscribe(data => {
         console.log(data);
       }, error => {

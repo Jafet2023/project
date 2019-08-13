@@ -1,7 +1,7 @@
-<app-header titulo="Reclamo"></app-header>
+<app-header titulo="Calificacion"></app-header>
 
 <ion-content>
-  <form #form="ngForm" (ngSubmit)="PostReclamo(form)" method="post">
+  <form #form="ngForm" (ngSubmit)="PostCalificacion(form)" method="post">
       <ion-toolbar>
           <ion-text>
               <h6>Selecione la Empresa</h6>
@@ -10,7 +10,7 @@
     
       <ion-item>
           <ion-label>Seleccione la Empresa</ion-label>
-          <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
+          <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre"
           [items]="Empresas" [canSearch]="true" (onChange)="portChange($event)" ngModel name="empresa" id="empresa">
             <ng-template selectSearchableLabelTemplate>
               No hay Empresas
@@ -23,13 +23,13 @@
     
         <ion-toolbar>
           <ion-text>
-              <h6>Descripcion del Problema</h6>
+              <h6>Comentario</h6>
           </ion-text>
           <ion-item>
             <ion-input ngModel name="descripcion" id="descripcion"></ion-input>
           </ion-item>
       </ion-toolbar>
       <br>
-      <ion-button type="submit" expand="full" color="danger">Enviar Reclamo</ion-button>
+      <ion-button type="submit" expand="full" color="secondary">Enviar</ion-button>
   </form>
 </ion-content>

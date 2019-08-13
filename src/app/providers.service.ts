@@ -37,6 +37,12 @@ export class ProvidersService {
     )
   }
 
+  PostCalificacion(descripcion: String,empresacalificacion: String) {
+    return this.http.post(this.apiUrl + '/calificacions',
+      {descripcion: descripcion,empresa: empresacalificacion }
+    )
+  }
+
   // addEmpresas(data) {
   //   return new Promise((resolve, reject) => {
   //     this.http.post(this.apiUrl + '/empresas', JSON.stringify(data))
