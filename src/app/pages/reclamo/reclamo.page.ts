@@ -47,7 +47,7 @@ export class ReclamoPage implements OnInit {
   }
 
   PostReclamo(fRegistro: NgForm) {
-    this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.empresa)
+    this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.fecha,fRegistro.value.empresa)
       .subscribe(data => {
         console.log(data);
       }, error => {

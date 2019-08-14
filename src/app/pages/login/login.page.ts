@@ -106,7 +106,7 @@ avatarSlide = {
   // }
 
   Registro(fRegistro: NgForm) {
-    this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.telefono, fRegistro.value.email)
+    this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.email)
       .subscribe(data => {
         console.log(data);
       }, error => {

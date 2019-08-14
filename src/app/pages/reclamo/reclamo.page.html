@@ -28,6 +28,12 @@
           <ion-item>
             <ion-input ngModel name="descripcion" id="descripcion"></ion-input>
           </ion-item>
+
+          <ion-item>
+              <ion-label>Fecha de la Denuncia</ion-label>
+              <ion-datetime type="date" ngModel name="fecha" id="fecha" display-format="DD MM, YYYY" required></ion-datetime>
+          </ion-item>
+
       </ion-toolbar>
       <br>
       <ion-button type="submit" expand="full" color="danger">Enviar Reclamo</ion-button>

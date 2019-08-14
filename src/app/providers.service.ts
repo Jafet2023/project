@@ -25,15 +25,15 @@ export class ProvidersService {
     });
   }
 
-  register(nombre: String, telefono: String, correo: String) {
+  register(nombre: String, apellidos: String, telefono: String, email: String) {
     return this.http.post(this.apiUrl + '/conductors',
-      {nombre: nombre, telefono: telefono, correo: correo}
+      {nombre: nombre, apellidos:apellidos, telefono: telefono, email: email}
     )
   }
 
-  PostReclamo(descripcion: String,empresareclamo: String) {
+  PostReclamo(descripcion: String, fecha: Date, empresareclamo: String) {
     return this.http.post(this.apiUrl + '/reclamos',
-      {descripcion: descripcion,empresa: empresareclamo }
+      {descripcion: descripcion, fecha: fecha, empresa: empresareclamo }
     )
   }
 
