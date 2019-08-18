@@ -25,9 +25,9 @@ export class ProvidersService {
     });
   }
 
-  register(nombre: String, apellidos: String, telefono: String, email: String) {
+  register(nombre: String, apellidos: String, telefono: String, correo: String) {
     return this.http.post(this.apiUrl + '/conductors',
-      {nombre: nombre, apellidos:apellidos, telefono: telefono, email: email}
+      {nombre: nombre, apellidos: apellidos, telefono: telefono, email: correo}
     )
   }
 

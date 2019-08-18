@@ -15,20 +15,20 @@ export class LoginPage implements OnInit {
 
   error_messages = {
     'nombre':[
-      { type: 'required', message: 'nombre is required'},
-      { type: 'required', message: 'no olvide tu name'},
+      { type: 'required', message: 'Nombre es requerido'}
+      // { type: 'required', message: 'no olvide tu name'},
     ],
     'apellidos':[
-      { type: 'required', message: 'apellidos is required'},
-      { type: 'required', message: 'pon tus apellidos'},
+      { type: 'required', message: 'apellidos es requerido'}
+      // { type: 'required', message: 'pon tus apellidos'},
     ],
     'telefono':[
-      { type: 'required', message: 'telefono is required'},
-      { type: 'required', message: 'no olvide telefono'},
+      { type: 'required', message: 'telefono es requerido'}
+      // { type: 'required', message: 'no olvide telefono'},
     ],
     'email':[
-      { type: 'required', message: 'Email is required'},
-      { type: 'required', message: 'aqui van tu correo si es que tienes'},
+      { type: 'required', message: 'Correo es requerido'}
+      // { type: 'required', message: 'aqui van tu correo si es que tienes'},
     ],
   }
   avatars = [
