@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'listagomeria', loadChildren: './pages/listagomeria/listagomeria.module#ListagomeriaPageModule' },
   { path: 'listagrua', loadChildren: './pages/listagrua/listagrua.module#ListagruaPageModule' },
   { path: 'reclamo', loadChildren: './pages/reclamo/reclamo.module#ReclamoPageModule' },  { path: 'calificacion', loadChildren: './pages/calificacion/calificacion.module#CalificacionPageModule' },
+  { path: 'listacerrajeria', loadChildren: './pages/listacerrajeria/listacerrajeria.module#ListacerrajeriaPageModule' },
 
 ];
 

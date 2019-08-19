@@ -1,0 +1,17 @@
+<app-header titulo="Lista de Gomeria" color="primary"></app-header>
+
+<ion-content padding>
+  <ion-list >
+
+    <ion-card button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
+      <ion-card-header>
+        <ion-card-title class="ion-text-nowrap">{{ empresa.nombre }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+          <ion-text> {{empresa.direccion}} - {{empresa.distancia}} m</ion-text><br/>
+          <ion-text>{{empresa.horarios}}</ion-text>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
