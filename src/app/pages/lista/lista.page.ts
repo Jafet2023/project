@@ -22,4 +22,9 @@ export class ListaPage implements OnInit {
       console.log(this.empresas);
     });
   }
+
+  Calculation(): void {
+    const emotions = ['happy', 'sad', 'depressed', 'healthy'];
+    var randomNumber: number = Math.sqrt( (latitudUsuario - latitudEmpresa)* (latitudUsuario- latitudEmpresa) + (lontitudUsuario - longitudEmpresa)*(lontitudUsuario- longitudEmpresa));
+  }
 }
