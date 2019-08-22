@@ -12,10 +12,11 @@
       <p>Nit: {{information.nit}}</p>
       <p>Correo: {{information.correo}}</p>
       <p>Horarios: {{information.horarios}}</p>
-      <p>Direccion:<a href="'http://maps.google.com/maps?f=q&q=' + '{{latitud}} + {{longitud}}">Ir a ubicacion </a></p>
+      <p>Latitud: {{information.latitud}}</p>
+      <p>Longitud: {{information.longitud}}</p>
+      <p>Ubicacion: <a href="http://maps.google.com/maps?f=q&q={{information.latitud}},{{information.longitud}}&z=3">Ir a ubicacion </a></p>
       <p>Telefono: <a href="tel: {{information.telefono}}">{{information.telefono}}</a></p>
       <p>Telefono auxilio: <a href="tel: {{information.telefonoauxilio24/7}}">{{information.telefono}}</a></p>
-      <p>Ubicacion: </p>
     </ion-card-content>
   </ion-card>
 

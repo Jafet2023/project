@@ -12,21 +12,17 @@
           <ion-text>Direccion: {{empresa.direccion}} - Distancia: {{empresa.distancia}} m </ion-text>
           <br/>
           <ion-text>Horarios: {{empresa.horarios}}</ion-text>
+
+          <p>Latitud de Empresa: {{empresa.latitud}}</p>
+          <p>Longitud de Empresa: {{empresa.longitud}}</p>
+          
+          <p>Latitud: {{lat}}</p>
+          <p>Longitud: {{lon}}</p>
+
+          <p>Distancia: {{total}}</p>
+      
       </ion-card-content>
     </ion-card>
 
   </ion-list>
 </ion-content>
-
-<!-- <app-header titulo="Lista"></app-header>
-
-<ion-content>
-  <ion-list *ngIf="empresas">
-    <div *ngFor="let empresa of empresas">
-      <ion-item  button [routerLink]="['/lista', empresas.id]" >
-        <ion-card-header>{{empresa.nombre}} {{empresa.id}} </ion-card-header> 
-      </ion-item>
-    </div>    
-  </ion-list>
-
-</ion-content> -->
