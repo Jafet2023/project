@@ -23,13 +23,24 @@ export class ListaPage implements OnInit {
   ngOnInit() {
     this.getEmpresa()
   }
+      
+  // let usersIds = [ids.userId];
+      
+  //     for (let iterator of this.miGenteProvider.getCelularAcudientes()) {
+  //       //this.presentToast1(iterator) 
+  //       objUserId = this.acudientesProvider.getUsuario(iterator);
+  //       objUserId.query.ref.on('value',(itemSnapShot)=>{
+  //       usersIds.push(itemSnapShot.val().id)    
+  //       })
+  //     }
+      
 
   getGeolocation(){
     this.geolocation.getCurrentPosition().then((geoposition: Geoposition)=>{
       this.lat = geoposition.coords.latitude;
       this.lon = geoposition.coords.longitude;
 
-      let latMadrid = -17.770637;
+      let latMadrid = this.empresas.empresas.latitud;
       // -17.770637, -63.175327
       let lonMadrid = -63.175327;
 
@@ -39,7 +50,7 @@ export class ListaPage implements OnInit {
     });
   }
 
-  calculateDistance(lon1: number, lon2: number, lat1: number, lat2: number){
+  calculateDistance(lon1, lon2, lat1, lat2){
     let p = 0.017453292519943295;
     let c = Math.cos;
     let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((lon1- lon2) * p))) / 2;

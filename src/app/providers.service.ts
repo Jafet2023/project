@@ -69,6 +69,8 @@ export class ProvidersService {
     });
   }
 
+  
+
   getCerrajero(){
     return new Promise(resolve => {
       this.http.get(this.apiUrl + '/rubros/5d179ccc60be3821a064d475 ').subscribe(data => {
@@ -91,7 +93,7 @@ export class ProvidersService {
 
   getGomeria(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/rubros/5d179cbc60be3821a064d473').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Gomeria').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
