@@ -12,30 +12,36 @@ export class ListagomeriaPage implements OnInit {
 
   lat:number;
   lon:number;
-  total:string;
+  total:number;
+  distancias:Array<number> = [];
+  latMadrid:any;
+  lonMadrid:any;
 
+  // empresas: Array<object> = [];
   empresas: any;
 
-  constructor(private serviceProvider: ProvidersService, public navCtrl: NavController, public geolocation:Geolocation) { 
-    this.getGeolocation()
+  constructor(private serviceProvider: ProvidersService, public navCtrl: NavController, public geolocation:Geolocation) {
+    // this.distancias = [];
+    //this.getEmpresa();
+    //this.getGeolocation();
   }
 
   ngOnInit() {
-   this.getEmpresa()
+   this.getEmpresa();
   }
 
-  getGeolocation(){
+  getGeolocation(latemp,lonemp){
     this.geolocation.getCurrentPosition().then((geoposition: Geoposition)=>{
       this.lat = geoposition.coords.latitude;
       this.lon = geoposition.coords.longitude;
-
-      let latMadrid = -17.770637;
+      console.log(latemp);
+      console.log(lonemp);
+      //let latMadrid = -17.770637;
       // -17.770637, -63.175327
-      let lonMadrid = -63.175327;
+      //let lonMadrid = -63.175327;
 
-      this.total = this.calculateDistance(this.lon, lonMadrid, this.lat, latMadrid) + ' KM ' ;
-      
-      // this.total = this.calculateDistance(this.lon, lonMadrid, this.lat, latMadrid) + ' KM ' ;
+      var t = this.calculateDistance(this.lon, lonemp, this.lat, latemp); 
+      this.distancias.push(t);  
     });
   }
 
@@ -51,8 +57,20 @@ export class ListagomeriaPage implements OnInit {
   getEmpresa(){
     this.serviceProvider.getGomeria().then(data => {
       this.empresas = data;
-      console.log(this.empresas);
-    })
+      for(var i=0;i<this.empresas.length;i++){
+        this.latMadrid = this.empresas[i].latitud;
+        this.lonMadrid = this.empresas[i].longitud;
+        this.getGeolocation(this.latMadrid,this.lonMadrid);
+      }
+      // console.log(this.empresas);
+      // console.log(this.distancias);
+      // console.log(this.distancias[0]);
+      // // console.log(this.distancias[0]);
+      // for(var i=0;i<this.distancias.length;i++){
+      //   console.log(this.distancias[i]);
+      //   this.empresas[i].distancia = this.distancias[i];
+      // }
+    });
   }
 
 }
