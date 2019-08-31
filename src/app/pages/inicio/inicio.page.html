@@ -11,9 +11,9 @@
 <ion-content>
 
   <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let slide of slides">
+    <ion-slide *ngFor="let imagen of imagenes">
       <ion-card>
-        <img [src]="slide.img">
+        <img src="{{imagen.imagen.url}}"  style=" width: 600px;height: 200px;">
       </ion-card>
     </ion-slide>
   </ion-slides>

@@ -34,7 +34,7 @@ export class ReclamoPage implements OnInit {
               _id: this.empresas[i]._id,
               nombre: this.empresas[i].nombre
           };
-          this.Empresas.push(this.item);
+        this.Empresas.push(this.item);
       }
     });
   }

@@ -40,8 +40,15 @@ export class ListagomeriaPage implements OnInit {
       // -17.770637, -63.175327
       //let lonMadrid = -63.175327;
 
+      // let dis = {
+      //   longitud:"",
+      //   latitud:"",
+      //   distancia: this.calculateDistance(this.lon, lonemp, this.lat, latemp)
+      // }
+      // almacenar todos los resultados en un objeto y despues que los mande al html
       var t = this.calculateDistance(this.lon, lonemp, this.lat, latemp); 
-      this.distancias.push(t);  
+      // var t = this.getDistance(this.lon, lonemp, this.lat, latemp);
+      this.distancias.push(lonemp);  
     });
   }
 
@@ -51,7 +58,9 @@ export class ListagomeriaPage implements OnInit {
     let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((lon1- lon2) * p))) / 2;
     let dis = (12742 * Math.asin(Math.sqrt(a)));
     // return Math.trunc(dis);
+    // var distanci = Math.sqrt( (lat1- lat2)* (lat1- lat2) + (lon1- lon2)*(lon1- lon2))
     return Math.round(dis * 100) / 100;
+    // return Math.round(distanci);
   }
 
   getEmpresa(){
@@ -62,8 +71,8 @@ export class ListagomeriaPage implements OnInit {
         this.lonMadrid = this.empresas[i].longitud;
         this.getGeolocation(this.latMadrid,this.lonMadrid);
       }
-      // console.log(this.empresas);
-      // console.log(this.distancias);
+      console.log(this.empresas);
+      console.log(this.distancias);
       // console.log(this.distancias[0]);
       // // console.log(this.distancias[0]);
       // for(var i=0;i<this.distancias.length;i++){

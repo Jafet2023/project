@@ -11,7 +11,9 @@ export class ProvidersService {
   }
 
   // empresareclamo = 'empresa._id';
-  apiUrl = 'https://strapi-udi.herokuapp.com';
+  // apiUrl = 'https://strapi-udi.herokuapp.com';
+
+  apiUrl = 'http://127.0.0.1:1337';
 
   //https://strapi-udi.herokuapp.com
   //http://127.0.0.1:1337
@@ -57,6 +59,16 @@ export class ProvidersService {
   //vista informacion traido por ID
   getDetails(id: string){
     return this.http.get(`${this.apiUrl}/empresas/${id}`);
+  }
+
+  getImagenes(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/imagenes').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
   }
 
   getMecanica(){

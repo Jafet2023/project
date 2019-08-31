@@ -14,6 +14,7 @@ import { ProvidersService } from './providers.service';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

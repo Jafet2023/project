@@ -15,30 +15,21 @@ export class InicioPage implements OnInit {
     speed: 400
   };
 
-  empresas: any;
+  imagenes: any;
 
   categoria = ['Mecanica','Cerrajero']
 
-  slides: { img: string }[] = [
-    {
-      img: '/uploads/e616ffd3160e4f06b686f4452acb31db.jpg'
-    },
-    {
-      img: '/assets/perro-2.jpg'
-    },
-    {
-      img: '/assets/perro-3.jpg'
-    },
-  ];
-
-  constructor() { }
+  constructor(private serviceProvider: ProvidersService) { }
 
   ngOnInit() {
-    this.cambioCategoria
+    this.getImagenes();
   }
 
-  cambioCategoria(event){
-    console.log();
+  getImagenes(){
+    this.serviceProvider.getImagenes().then(data => {
+      this.imagenes = data;
+      console.log(this.imagenes);
+    });
   }
 
 }
