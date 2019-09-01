@@ -11,9 +11,9 @@ export class ProvidersService {
   }
 
   // empresareclamo = 'empresa._id';
-  // apiUrl = 'https://strapi-udi.herokuapp.com';
+  apiUrl = 'https://strapi-udi.herokuapp.com';
 
-  apiUrl = 'http://127.0.0.1:1337';
+  // apiUrl = 'http://127.0.0.1:1337';
 
   //https://strapi-udi.herokuapp.com
   //http://127.0.0.1:1337
