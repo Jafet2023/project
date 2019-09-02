@@ -3,14 +3,23 @@
 <ion-content padding>
   <ion-list >
 
-    <ion-card button *ngFor="let empresa of empresas.empresas" [routerLink]="['/', 'lista', empresa.id]">
+    <ion-card button *ngFor="let empresa of empresas; let i = index" [routerLink]="['/', 'lista', empresa.id]">
       <ion-card-header>
         <ion-card-title class="ion-text-nowrap">{{ empresa.nombre }}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-          <ion-text> {{empresa.direccion}} - {{empresa.distancia}} m</ion-text><br/>
-          <ion-text>{{empresa.horarios}}</ion-text>
+        <ion-text> {{ empresa.direccion }}</ion-text><br/>
+        <ion-text>{{ empresa.horarios }}</ion-text>
+
+        <!-- <p>Idempresa: {{ empresa.id }}</p>
+        <p>Latitud de Empresa: {{ empresa.latitud }}</p>
+        <p>Longitud de Empresa: {{ empresa.longitud }}</p>
+        
+        <p>Latitud del celular: {{ lat }}</p>
+        <p>Longitud del celular: {{ lon }}</p> -->
+
+        <div *ngFor="let distancia of distancias;" ><p *ngIf="distancia._id == empresa.id">Distancia: {{ distancia.distancia }} KM</p></div>
       </ion-card-content>
     </ion-card>
   </ion-list>

@@ -12,41 +12,33 @@ export class ListaPage implements OnInit {
 
   lat:number;
   lon:number;
-  total:string;
+  total:number;
+  item: { _id: any; distancia: any; };
+  distancias:any[];
+  latMadrid:any;
+  lonMadrid:any;
 
   empresas: any;
 
   constructor(private serviceProvider: ProvidersService, public navCtrl: NavController, public geolocation:Geolocation) {
-    this.getGeolocation()
+    this.distancias = [];
    }
 
   ngOnInit() {
     this.getEmpresa()
   }
-      
-  // let usersIds = [ids.userId];
-      
-  //     for (let iterator of this.miGenteProvider.getCelularAcudientes()) {
-  //       //this.presentToast1(iterator) 
-  //       objUserId = this.acudientesProvider.getUsuario(iterator);
-  //       objUserId.query.ref.on('value',(itemSnapShot)=>{
-  //       usersIds.push(itemSnapShot.val().id)    
-  //       })
-  //     }
-      
 
-  getGeolocation(){
+  getGeolocation(latemp,lonemp,idempresa){
     this.geolocation.getCurrentPosition().then((geoposition: Geoposition)=>{
       this.lat = geoposition.coords.latitude;
       this.lon = geoposition.coords.longitude;
-
-      let latMadrid = this.empresas.empresas.latitud;
-      // -17.770637, -63.175327
-      let lonMadrid = -63.175327;
-
-      this.total = this.calculateDistance(this.lon, lonMadrid, this.lat, latMadrid) + ' KM ' ;
-      
-      // this.total = this.calculateDistance(this.lon, lonMadrid, this.lat, latMadrid) + ' KM ' ;
+      // almacenar todos los resultados en un objeto y despues que los mande al html
+      var t = this.calculateDistance(this.lon, lonemp, this.lat, latemp);
+      this.item = {
+        _id: idempresa,
+        distancia: t
+      };
+      this.distancias.push(this.item);  
     });
   }
 
@@ -55,7 +47,6 @@ export class ListaPage implements OnInit {
     let c = Math.cos;
     let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((lon1- lon2) * p))) / 2;
     let dis = (12742 * Math.asin(Math.sqrt(a)));
-    // return Math.trunc(dis);
     return Math.round(dis * 100) / 100;
   }
   
@@ -63,7 +54,13 @@ export class ListaPage implements OnInit {
   getEmpresa(){
     this.serviceProvider.getMecanica().then(data => {
       this.empresas = data;
+      for(var i=0;i<this.empresas.length;i++){
+        this.latMadrid = this.empresas[i].latitud;
+        this.lonMadrid = this.empresas[i].longitud;
+        this.getGeolocation(this.latMadrid,this.lonMadrid,this.empresas[i].id);
+      }
       console.log(this.empresas);
+      console.log(this.distancias);
     });
   }
 

@@ -45,17 +45,6 @@ export class ProvidersService {
     )
   }
 
-  // addEmpresas(data) {
-  //   return new Promise((resolve, reject) => {
-  //     this.http.post(this.apiUrl + '/empresas', JSON.stringify(data))
-  //       .subscribe(res => {
-  //         resolve(res);
-  //       }, (err) => {
-  //         reject(err);
-  //       });
-  //   });
-  // }
-
   //vista informacion traido por ID
   getDetails(id: string){
     return this.http.get(`${this.apiUrl}/empresas/${id}`);
@@ -73,7 +62,7 @@ export class ProvidersService {
 
   getMecanica(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/rubros/5d179cc260be3821a064d474').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Mecanica').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -85,7 +74,7 @@ export class ProvidersService {
 
   getCerrajero(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/rubros/5d179ccc60be3821a064d475 ').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Cerrajeria').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -95,7 +84,7 @@ export class ProvidersService {
 
   getGrua(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/rubros/5d1e7bc6b486684060e5d714').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Grua').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
