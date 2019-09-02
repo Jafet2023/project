@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
       { type: 'required', message: 'telefono es requerido'}
       // { type: 'required', message: 'no olvide telefono'},
     ],
-    'email':[
+    'correo':[
       { type: 'required', message: 'Correo es requerido'}
       // { type: 'required', message: 'aqui van tu correo si es que tienes'},
     ],
@@ -89,7 +89,7 @@ avatarSlide = {
         Validators.maxLength(8),
         Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')
       ])),
-      email: new FormControl('',Validators.compose([
+      correo: new FormControl('',Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
@@ -106,7 +106,7 @@ avatarSlide = {
   // }
 
   Registro(fRegistro: NgForm) {
-    this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.email)
+    this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.correo)
       .subscribe(data => {
         console.log(data);
       }, error => {

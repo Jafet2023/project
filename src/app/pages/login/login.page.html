@@ -47,12 +47,12 @@
       
         <ion-item>
           <ion-label position="floating">Correo</ion-label>
-          <ion-input formControlName="email" type="email" ngModel name="email" required></ion-input>
+          <ion-input formControlName="correo" type="email" ngModel name="correo" required></ion-input>
         </ion-item>
 
         <div class="error-messages">
-            <ng-container *ngFor="let error of error_messages.email">
-              <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            <ng-container *ngFor="let error of error_messages.correo">
+              <div class="error-message" *ngIf="loginForm.get('correo').hasError(error.type) && (loginForm.get('correo').dirty || loginForm.get('correo').touched)">
                 {{error.message}}
               </div>
             </ng-container>
