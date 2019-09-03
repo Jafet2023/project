@@ -15,8 +15,6 @@ export class ProvidersService {
 
   // apiUrl = 'http://127.0.0.1:1337';
 
-  //https://strapi-udi.herokuapp.com
-  //http://127.0.0.1:1337
   getEmpresas() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl + '/empresas').subscribe(data => {

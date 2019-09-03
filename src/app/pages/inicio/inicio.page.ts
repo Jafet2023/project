@@ -8,16 +8,7 @@ import { ProvidersService } from '../../providers.service';
 })
 export class InicioPage implements OnInit {
 
-
-  
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400
-  };
-
   imagenes: any;
-
-  categoria = ['Mecanica','Cerrajero']
 
   constructor(private serviceProvider: ProvidersService) { }
 
