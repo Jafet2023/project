@@ -100,5 +100,15 @@ export class ProvidersService {
     });
   }
 
+  getElectrico(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Electrico').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   
 }
