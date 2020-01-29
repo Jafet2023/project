@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersService } from '../../providers.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +11,12 @@ export class InicioPage implements OnInit {
 
   imagenes: any;
 
-  constructor(private serviceProvider: ProvidersService) { }
+  constructor(private serviceProvider: ProvidersService,
+              private storage: Storage) {
+    this.storage.get('USER_INFO').then((response) => {
+      console.log(response);
+    });
+   }
 
   ngOnInit() {
     this.getImagenes();

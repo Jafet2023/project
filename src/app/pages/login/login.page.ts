@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProvidersService } from '../../providers.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication.service';
 
 
 @Component({
@@ -69,7 +70,9 @@ export class LoginPage implements OnInit {
 avatarSlide = {
   slidesPerView: 3.5
 };
-  constructor(private serviceProvider: ProvidersService, public formBuilder: FormBuilder) {
+  constructor(private authService: AuthenticationService,
+              private serviceProvider: ProvidersService,
+              public formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       nombre: new FormControl('',Validators.compose([
         Validators.required,
@@ -108,7 +111,12 @@ avatarSlide = {
   Registro(fRegistro: NgForm) {
     this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.correo)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
+        this.authService.login(
+          data.id,
+          data.nombre,
+          data.apellidos
+        );
       }, error => {
         console.log(error);
       });

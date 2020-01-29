@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: 'lista/:id', loadChildren: './pages/informacion/informacion.module#InformacionPageModule' },
   { path: 'listagomeria', loadChildren: './pages/listagomeria/listagomeria.module#ListagomeriaPageModule' },
   { path: 'listagrua', loadChildren: './pages/listagrua/listagrua.module#ListagruaPageModule' },
-  { path: 'reclamo', loadChildren: './pages/reclamo/reclamo.module#ReclamoPageModule' },  { path: 'calificacion', loadChildren: './pages/calificacion/calificacion.module#CalificacionPageModule' },
+  { path: 'reclamo', loadChildren: './pages/reclamo/reclamo.module#ReclamoPageModule' },
+  { path: 'calificacion', loadChildren: './pages/calificacion/calificacion.module#CalificacionPageModule' },
   { path: 'listacerrajeria', loadChildren: './pages/listacerrajeria/listacerrajeria.module#ListacerrajeriaPageModule' },
   { path: 'electrico', loadChildren: './pages/electrico/electrico.module#ElectricoPageModule' },
 
