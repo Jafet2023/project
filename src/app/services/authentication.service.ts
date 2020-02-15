@@ -38,6 +38,7 @@ export class AuthenticationService {
     };
     this.storage.set('USER_INFO', dummy_response).then((response) => {
       this.router.navigate(['inicio']);
+      console.log(response);
       this.authState.next(true);
     });
   }

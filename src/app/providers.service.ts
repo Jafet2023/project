@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +26,10 @@ export class ProvidersService {
     });
   }
 
-  register(nombre: String, apellidos: String, telefono: Number, email: String) {
-    return this.http.post(this.apiUrl + '/conductors',
-      {nombre: nombre, apellidos: apellidos, telefono: telefono, correo: email}
-    )
+  register(nombre: String, apellidos: String, telefono: Number, correo: String) {
+    return this.http.post(this.apiUrl + '/conductores',
+      {nombre: nombre, apellidos: apellidos, telefono: telefono, correo: correo}
+    ).pipe(tap(console.log));
   }
 
   PostReclamo(descripcion: String, fecha: Date, empresareclamo: String) {

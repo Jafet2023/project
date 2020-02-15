@@ -95,8 +95,7 @@ avatarSlide = {
       correo: new FormControl('',Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(15),
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.email
       ])),
     })
    }
@@ -110,8 +109,8 @@ avatarSlide = {
 
   Registro(fRegistro: NgForm) {
     this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.correo)
-      .subscribe(data => {
-        // console.log(data);
+      .subscribe((data) : any => {
+        console.log(data);
         this.authService.login(
           data.id,
           data.nombre,
