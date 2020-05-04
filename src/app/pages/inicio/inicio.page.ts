@@ -13,9 +13,6 @@ export class InicioPage implements OnInit {
 
   constructor(private serviceProvider: ProvidersService,
               private storage: Storage) {
-    this.storage.get('USER_INFO').then((response) => {
-      console.log(response);
-    });
    }
 
   ngOnInit() {

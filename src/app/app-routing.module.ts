@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'calificacion', loadChildren: './pages/calificacion/calificacion.module#CalificacionPageModule' },
   { path: 'listacerrajeria', loadChildren: './pages/listacerrajeria/listacerrajeria.module#ListacerrajeriaPageModule' },
   { path: 'electrico', loadChildren: './pages/electrico/electrico.module#ElectricoPageModule' },
-
 ];
 
 @NgModule({
