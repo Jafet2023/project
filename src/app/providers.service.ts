@@ -39,7 +39,7 @@ export class ProvidersService {
   }
 
   PostCalificacion(descripcion: String,empresacalificacion: String) {
-    return this.http.post(this.apiUrl + '/calificacions',
+    return this.http.post(this.apiUrl + '/calificaciones',
       {descripcion: descripcion,empresa: empresacalificacion }
     )
   }
@@ -61,7 +61,7 @@ export class ProvidersService {
 
   getMecanica(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/empresas?rubros.nombre=mecanica').subscribe(data => {
+      this.http.get(this.apiUrl + '/empresas?servicios.nombre=Mecanica').subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

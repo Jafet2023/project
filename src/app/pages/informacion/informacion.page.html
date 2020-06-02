@@ -20,14 +20,14 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card >
+  <ion-card *ngIf="information">
     <ion-card-header>
       <ion-card-title>
         Calificaciones
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content *ngFor="let infor of information.calificacions">
-      <p>Descripcion: {{infor.descripcion}}</p>
+    <ion-card-content *ngFor="let infor of information.calificaciones">
+      <p>{{infor.descripcion}}</p>
     </ion-card-content>
   </ion-card>
 
