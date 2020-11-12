@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProvidersService } from 'src/app/providers.service';
 import { IonicSelectableComponent } from 'ionic-selectable';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -19,9 +21,11 @@ export class ReclamoPage implements OnInit {
   reclamos: any;
   item: { _id: any; nombre: any; };
   // item: empresasel;
+  informacion: any;
+  usu: any;
 
   
-  constructor(private serviceProvider: ProvidersService) {
+  constructor(private serviceProvider: ProvidersService,private autenticacion:AuthenticationService, private storage: Storage) {
     this.Empresas = [];
   }
 
@@ -37,6 +41,9 @@ export class ReclamoPage implements OnInit {
         this.Empresas.push(this.item);
       }
     });
+    // this.storage.set('name', JSON.stringify(name));  
+    let usu = this.autenticacion.getuser();
+    // this.info = informacion;
   }
 
   portChange(event: {
@@ -47,12 +54,17 @@ export class ReclamoPage implements OnInit {
   }
 
   PostReclamo(fRegistro: NgForm) {
-    this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.fecha,fRegistro.value.empresa)
+    var idus = 0;
+    this.storage.get('USER_INFO').then(res=>{
+      idus = res.user_id;
+      this.serviceProvider.PostReclamo(fRegistro.value.descripcion,fRegistro.value.fecha,fRegistro.value.empresa,idus)
       .subscribe(data => {
         console.log(data);
       }, error => {
         console.log(error);
       });
+    }
+    )
   }
 
 }

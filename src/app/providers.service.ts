@@ -32,15 +32,16 @@ export class ProvidersService {
     ).pipe(tap(console.log));
   }
 
-  PostReclamo(descripcion: String, fecha: Date, empresareclamo: String) {
+  PostReclamo(descripcion: String, fecha: Date, empresareclamo: String, conductorecalificacion: Number) {
     return this.http.post(this.apiUrl + '/reclamos',
-      {descripcion: descripcion, fecha: fecha, empresa: empresareclamo }
+      {descripcion: descripcion, fecha: fecha, empresa: empresareclamo, conductore: conductorecalificacion }
     )
   }
 
-  PostCalificacion(descripcion: String,empresacalificacion: String) {
+  PostCalificacion(descripcion: String,empresacalificacion: String, fecha: Date, conductorecalificacion: Number) {
+    console.log(conductorecalificacion);
     return this.http.post(this.apiUrl + '/calificaciones',
-      {descripcion: descripcion,empresa: empresacalificacion }
+      {descripcion: descripcion,empresa: empresacalificacion, fecha: fecha, conductore: conductorecalificacion}
     )
   }
 

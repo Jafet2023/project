@@ -1,6 +1,7 @@
 <app-header titulo="Denuncia"></app-header>
 
 <ion-content>
+  
   <form #form="ngForm" (ngSubmit)="PostReclamo(form)" method="post">
       <ion-toolbar>
           <ion-text>
@@ -9,6 +10,7 @@
       </ion-toolbar>
     
       <ion-item>
+        
           <ion-label>Seleccione la Empresa</ion-label>
           <ionic-selectable item-content [(ngModel)]="Empresa" itemValueField="id" itemTextField="nombre" 
           [items]="Empresas" [canSearch]="true" (onChange)="portChange($event)" ngModel name="empresa" id="empresa">

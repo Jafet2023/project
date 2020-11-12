@@ -110,7 +110,7 @@ avatarSlide = {
   Registro(fRegistro: NgForm) {
     this.serviceProvider.register(fRegistro.value.nombre, fRegistro.value.apellidos, fRegistro.value.telefono, fRegistro.value.correo)
       .subscribe((data) : any => {
-        console.log(data);
+        console.log('result',data);
         this.authService.login(
           data.id,
           data.nombre,

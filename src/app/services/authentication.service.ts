@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
  
 @Injectable()
 export class AuthenticationService {
- 
+  
+  info :  any;
   authState = new BehaviorSubject(false);
  
   constructor(
@@ -40,6 +41,13 @@ export class AuthenticationService {
       this.router.navigate(['inicio']);
       console.log(response);
       this.authState.next(true);
+    });
+  }
+
+  getuser(){
+    this.storage.get('USER_INFO').then((val) => {
+      console.log('localstorage gave me ', val);
+      
     });
   }
  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProvidersService } from 'src/app/providers.service';
 import { IonicSelectableComponent } from 'ionic-selectable';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-calificacion',
@@ -18,7 +19,8 @@ export class CalificacionPage implements OnInit {
   reclamos: any;
   item: { _id: any; nombre: any; };
 
-  constructor(private serviceProvider: ProvidersService) { 
+  constructor(private serviceProvider: ProvidersService,
+              private storage: Storage) { 
     this.Empresas = [];
   }
 
@@ -45,12 +47,18 @@ export class CalificacionPage implements OnInit {
   }
 
   PostCalificacion(fRegistro: NgForm) {
-    this.serviceProvider.PostCalificacion(fRegistro.value.descripcion,fRegistro.value.empresa)
+    var idus = 0;
+    this.storage.get('USER_INFO').then(res=>{
+      console.log(res);
+      idus = res.user_id;
+      this.serviceProvider.PostCalificacion(fRegistro.value.descripcion,fRegistro.value.empresa,fRegistro.value.fecha,idus)
       .subscribe(data => {
         console.log(data);
       }, error => {
         console.log(error);
       });
+    });
+    
   }
 
 }
